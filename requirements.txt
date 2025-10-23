@@ -1,0 +1,7 @@
+# Framework principal
+fastapi[standard]
+
+# Ferramentas de Qualidade e Teste
+pytest
+black
+flake8
