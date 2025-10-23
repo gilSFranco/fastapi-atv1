@@ -36,8 +36,12 @@ def listar_estudante_por_id(id_estudante: int):
 
 @app.post("/estudantes", status_code=201, response_model=Estudante)
 def criar_estudante(estudante: CriarEstudante):
-    id_gerado = max([estudante.id for estudante in lista_estudantes], default=0) + 1
+    id_gerado = (
+        max([estudante.id for estudante in lista_estudantes], default=0) + 1
+    )
 
-    novo_estudante = Estudante(id=id_gerado, nome=estudante.nome, email=estudante.email)
+    novo_estudante = Estudante(
+        id=id_gerado, nome=estudante.nome, email=estudante.email
+    )
     lista_estudantes.append(novo_estudante)
     return novo_estudante
